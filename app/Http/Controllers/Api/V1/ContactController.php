@@ -24,8 +24,8 @@ class ContactController extends Controller
     public function store(StoreContactRequest $request)
     {
         $validated = $request->validated();
-        $contact = Contact::insert($validated);
-        return response()->json($contact);
+        $contact = Contact::create($validated);
+        return response()->json($contact, 201);
     }
 
     /**
@@ -41,7 +41,9 @@ class ContactController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validated();
+        $contact = Contact::update($validated);
+        return response()->json($contact, 200);
     }
 
     /**
@@ -49,6 +51,7 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $contact = Contact::destroy($id);
+        return response()->json($contact, 204);
     }
 }
