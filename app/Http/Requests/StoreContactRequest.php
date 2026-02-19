@@ -27,7 +27,7 @@ class StoreContactRequest extends FormRequest
         return [
             'given_name' => ['required', 'string', 'max:64'],
             'family_name' => ['nullable', 'string', 'max:64'],
-            'nickname' => ['nullable', 'string', 'max:32'],
+            'nick_name' => ['nullable', 'string', 'max:32'],
             'title' => ['nullable', 'string', 'max:16'],
 
         ];
